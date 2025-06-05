@@ -1,20 +1,30 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-import axios from 'axios'; // <--- IMPORTANT: Import axios here
+import axios from 'axios';
 
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Home from './pages/HomePage';
 import About from './pages/AboutUsPage';
 import Events from './pages/EventsPage'; // Public Events Page
-import Team from './pages/TeamPage';  // Public Teams Page
+import Team from './pages/TeamPage';    // Public Teams Page
 import Contact from './pages/ContactUs';
-import Gallery from './pages/GalleryPage'; // <--- Add this import
+import Gallery from './pages/GalleryPage'; // Gallery Page
 
 import AdminDashboard from './pages/AdminDashboard';
 import AdminLogin from './components/AdminLogin';
 import AdminTeamsPage from './pages/AdminTeamsPage'; // Admin Teams Management
 import AdminEventsPage from './components/EventManagement'; // Admin Events Management
+
+// --- IMPORTANT: Define your API URLs based on environment ---
+// In development, it points to your local backend.
+// In production (after Vercel/Netlify build), it points to your deployed backend.
+const BACKEND_BASE_URL = process.env.NODE_ENV === 'production'
+    ? 'https://the-blockchain-hub-backend.onrender.com' // <--- REPLACE THIS WITH YOUR ACTUAL DEPLOYED RENDER BACKEND URL
+    : 'http://localhost:5000';
+
+const API_BASE_URL = `${BACKEND_BASE_URL}/api`;
+
 
 function App() {
     const [isAdminLoggedIn, setIsAdminLoggedIn] = useState(false);
@@ -56,6 +66,9 @@ function App() {
         // navigate('/'); // Example if you have a navigate hook here
     };
 
+    // Set axios base URL globally for all requests
+    axios.defaults.baseURL = API_BASE_URL; // <--- Set base URL for Axios
+
     return (
         <Router>
             <div className="app">
@@ -68,7 +81,7 @@ function App() {
                         <Route path="/events" element={<Events />} />
                         <Route path="/team" element={<Team />} />
                         <Route path="/contact" element={<Contact />} />
-                        <Route path="/gallery" element={<Gallery />} /> {/* <--- Add this route */}
+                        <Route path="/gallery" element={<Gallery />} /> {/* Gallery Page Route */}
 
                         {/* Admin Login Route */}
                         <Route
