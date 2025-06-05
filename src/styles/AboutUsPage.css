@@ -1,0 +1,440 @@
+/* ===== Base Styles ===== */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-size: cover; /* Retained from your previous code. If no background image, this can be removed. */
+    color: #333;
+    padding-top: 80px; /* Space for a fixed header/navigation bar */
+    background-color: #f8f9fa; /* A light, soft background color for the page */
+    line-height: 1.6; /* Improved readability for body text */
+}
+
+/* ===== Main Page Content Container (Wraps sections below the hero) ===== */
+/* This container ensures consistent maximum width and horizontal padding for your main content sections */
+.about-page-main-content {
+    width: 100%;
+    max-width: 1200px; /* Sets a maximum width for content, keeping it readable on large screens */
+    margin: 0 auto; /* Centers the content container horizontally on the page */
+    padding: 40px 1.5rem; /* Adds vertical padding and horizontal padding for spacing from screen edges */
+}
+
+/* ===== ABOUT HERO ROW (Contains the image gallery and the "Who We Are" card) ===== */
+.about-hero-row {
+    width: 100%;
+    max-width: 1200px; /* Ensures the hero row aligns with the main content container */
+    margin: 0 auto 48px auto; /* Centers the row, adds space below it */
+    display: flex;
+    flex-direction: row; /* Default layout: image gallery and card side-by-side */
+    align-items: center; /* Vertically centers the items within this row */
+    justify-content: center; /* Horizontally centers the group of items */
+    gap: 60px; /* Space between the image gallery and the content card */
+    padding-top: 48px; /* Adds space from the top of the body (below the fixed header) */
+}
+
+/* ===== Image Gallery (T, B, H images - HORIZONTAL side-by-side) ===== */
+.letter-gallery {
+    display: flex;
+    flex-direction: row; /* Arranges images horizontally */
+    align-items: flex-end; /* Aligns images to their bottom, useful if heights vary */
+    justify-content: center; /* Centers images horizontally if there's extra space */
+    gap: 2.2rem; /* Space between horizontal images */
+    margin-top: 40px; /* Adjust top margin for the gallery */
+    margin-bottom: 40px; /* Adjust bottom margin for the gallery */
+}
+
+.letter-img {
+    width: 110px; /* Fixed width for each letter image */
+    height: 300px; /* Fixed height for consistent visual size */
+    object-fit: contain; /* Ensures the entire image is visible, potentially leaving empty space */
+    border-radius: 18px; /* Rounded corners for the image cards */
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15); /* Subtle shadow for depth */
+    background: #fff; /* White background for the image card */
+    padding: 0; /* No internal padding for the image itself */
+    border: 2.5px solid #e0e7ef; /* A thin, light border around the image card */
+    transition: box-shadow 0.2s, transform 0.3s cubic-bezier(.25,.8,.25,1), border 0.2s; /* Smooth transitions for hover effects */
+    z-index: 1; /* Default stacking order */
+    margin: 0; /* Ensures no default margins are present */
+}
+
+/* Hover effect for individual images */
+.letter-img:hover {
+    transform: scale(1.08); /* Slightly enlarges the image on hover */
+    box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.22); /* More pronounced shadow on hover */
+    border: 2.5px solid #1a237e; /* Darker accent border on hover */
+    z-index: 2; /* Brings the hovered image to the front of the stack */
+}
+
+/* Removed: .letter-separator-line and its pseudo-elements, as it was for the vertical stack */
+
+/* ===== About Content Card (The "Who We Are" text description) ===== */
+.about-content-card {
+    background: #fff; /* White background for the card */
+    border-radius: 22px; /* Rounded corners for the card */
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.13); /* Soft shadow for the card */
+    padding: 38px 38px 32px 38px; /* Padding inside the card */
+    max-width: 650px; /* INCREASED MAX-WIDTH for a wider card */
+    min-width: 320px; /* Minimum width to prevent content from becoming too narrow */
+    text-align: center;
+    margin: 0; /* Ensures no extra margin from parent */
+    display: flex;
+    flex-direction: column; /* Stacks content vertically within the card */
+    align-items: center; /* Centers content horizontally within the card */
+}
+.about-content-card h2 {
+    color: #1a237e; /* Deep blue heading color */
+    font-size: 2.1rem;
+    font-weight: 700;
+    margin-bottom: 1.2rem;
+}
+.about-content-card p {
+    font-size: 1.19rem;
+    color: #222; /* Dark grey text color */
+    line-height: 1.7; /* Improved line spacing for paragraphs */
+    margin-bottom: 0.7rem;
+}
+
+/* ===== General Section Styling (Applies to DNA, What We Do, Why Join, etc.) ===== */
+.about-section {
+    margin-bottom: 60px; /* Provides consistent spacing between major content sections */
+}
+
+.main-title, .section-title {
+    font-size: 2.8rem;
+    color: #1a237e;
+    text-align: center;
+    margin-bottom: 40px;
+    font-weight: 700;
+}
+
+.intro-text, .section-intro {
+    font-size: 1.15rem;
+    line-height: 1.8;
+    color: #444;
+    text-align: center;
+    max-width: 800px; /* Limits the width of introductory text for readability */
+    margin: 0 auto 50px auto; /* Centers text block and adds margin below */
+}
+
+/* DNA Section and What Makes Us Different Sections (Using CSS Grid for layout) */
+.dna-section, .different-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Creates a responsive grid of columns */
+    gap: 30px; /* Space between grid items */
+    margin-bottom: 60px;
+}
+.dna-section h2, .different-section h2 {
+    font-size: 1.8rem;
+    color: #1a237e;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+    text-align: center;
+    grid-column: 1 / -1; /* Makes the heading span all grid columns */
+}
+.dna-point, .different-point {
+    background: #e9f0f8; /* Light blue background for individual points */
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05); /* Subtle shadow for each point card */
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effects */
+}
+.dna-point:hover, .different-point:hover {
+    transform: translateY(-5px); /* Lifts the card slightly on hover */
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1); /* Enhanced shadow on hover */
+}
+.dna-point .icon, .different-point .icon {
+    font-size: 2.5rem;
+    color: #1a237e;
+    margin-bottom: 15px;
+    display: block;
+}
+.dna-point p, .different-point p {
+    font-size: 1.15rem;
+    line-height: 1.6;
+    color: #333;
+    margin-bottom: 0;
+}
+
+
+/* Founder Quote Section (Styled as a blockquote) */
+.founder-quote {
+    background: #fdf3e6; /* Light orange-ish background */
+    border-left: 5px solid #d35400; /* Accent orange border on the left side */
+    padding: 40px;
+    border-radius: 15px;
+    margin-bottom: 60px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    text-align: center;
+}
+.founder-quote blockquote {
+    font-size: 1.4rem;
+    font-style: italic;
+    color: #555;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    position: relative;
+    padding: 0 20px;
+}
+.founder-quote blockquote::before {
+    content: "“";
+    font-size: 4rem;
+    color: #d35400;
+    position: absolute;
+    left: 0;
+    top: -10px;
+}
+.founder-quote blockquote::after {
+    content: "”";
+    font-size: 4rem;
+    color: #d35400;
+    position: absolute;
+    right: 0;
+    bottom: -40px;
+}
+.founder-quote p {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #333;
+    text-align: right;
+    margin-top: 20px;
+}
+
+/* What We Do Section and Why Join Us Section (Similar background/padding) */
+.what-we-do, .why-join {
+    background: #f0f4f7;
+    padding: 60px 40px;
+    border-radius: 20px;
+    margin-bottom: 60px;
+    box-shadow: inset 0 0 15px rgba(0,0,0,0.05);
+}
+
+.activity-category, .benefit-category {
+    margin-bottom: 40px;
+}
+.activity-category h2, .benefit-category h2 {
+    text-align: left;
+    color: #1a237e;
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+}
+.activity-category ul, .benefit-category ul {
+    list-style: none;
+    padding-left: 20px;
+}
+.activity-category ul li, .benefit-category ul li {
+    font-size: 1.15rem;
+    line-height: 1.6;
+    color: #444;
+    margin-bottom: 10px;
+    position: relative;
+    padding-left: 25px;
+}
+.activity-category ul li::before, .benefit-category ul li::before {
+    content: "•";
+    color: #00bcd4;
+    font-size: 1.5rem;
+    position: absolute;
+    left: 0;
+    top: -2px;
+}
+
+.tagline, .final-tagline {
+    font-size: 1.2rem;
+    font-style: italic;
+    color: #555;
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 0;
+}
+
+/* Why Join Us - "You Belong Here If You're..." & "Join Now" sections */
+.belong-here, .join-cta {
+    background: #e6f6f8;
+    padding: 30px;
+    border-radius: 15px;
+    margin-top: 30px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+.belong-here h2, .join-cta h2 {
+    font-size: 1.8rem;
+    color: #1a237e;
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+.belong-points, .cta-steps {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+}
+.belong-points p, .cta-steps p {
+    background: #d4eff1;
+    padding: 12px 20px;
+    border-radius: 25px;
+    font-size: 0.95rem;
+    color: #1a237e;
+    font-weight: 500;
+    margin-bottom: 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+
+/* ===== Responsive Design (Media Queries) ===== */
+
+/* Large Tablets and smaller Desktops (Screens up to 992px wide) */
+@media (max-width: 992px) {
+    /* Adjustments for the About Hero Row */
+    .about-hero-row {
+        flex-direction: column; /* Stacks the image gallery and content card vertically */
+        gap: 2.5rem;
+        padding-top: 30px;
+        margin-bottom: 30px;
+    }
+    .letter-gallery {
+        flex-direction: row; /* Keep horizontal even when hero stacks vertically */
+        gap: 1.5rem; /* Reduce gap for smaller screens */
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    .letter-img {
+        width: 90px; /* Reduce image width for smaller screens */
+        height: 250px; /* Adjust height */
+    }
+    .about-content-card {
+        padding: 25px 20px;
+        max-width: 90%; /* Allows card to take more width on smaller screens */
+        min-width: unset;
+    }
+    .about-content-card h2 {
+        font-size: 1.8rem;
+    }
+    .about-content-card p {
+        font-size: 1rem;
+    }
+
+    /* General Sections Adjustments */
+    .about-page-main-content {
+        padding: 30px 1rem;
+    }
+    .main-title, .section-title {
+        font-size: 2.2rem;
+        margin-bottom: 30px;
+    }
+    .intro-text, .section-intro {
+        font-size: 1rem;
+        margin-bottom: 40px;
+    }
+    .dna-section, .different-section {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    .dna-section h2, .different-section h2,
+    .founder-quote h2, .what-we-do h2,
+    .activity-category h2, .benefit-category h2,
+    .belong-here h2, .join-cta h2 {
+        font-size: 1.6rem;
+        margin-bottom: 1rem;
+    }
+    .founder-quote {
+        padding: 30px 20px;
+    }
+    .founder-quote blockquote {
+        font-size: 1.2rem;
+    }
+    .what-we-do, .why-join {
+        padding: 40px 20px;
+    }
+    .activity-category ul, .benefit-category ul {
+        padding-left: 15px;
+    }
+    .activity-category ul li, .benefit-category ul li {
+        font-size: 0.95rem;
+    }
+    .tagline, .final-tagline {
+        font-size: 1.1rem;
+    }
+    .belong-points p, .cta-steps p {
+        font-size: 0.9rem;
+        padding: 10px 15px;
+    }
+}
+
+/* Smaller Tablets and Mobile Phones (Screens up to 576px wide) */
+@media (max-width: 576px) {
+    body {
+        padding-top: 60px;
+    }
+    .about-hero-row {
+        gap: 1.5rem;
+        padding-top: 20px;
+        margin-bottom: 20px;
+    }
+    .letter-gallery {
+        flex-direction: row; /* Still horizontal for smaller screens */
+        gap: 0.8rem; /* Even smaller gap */
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+    .letter-img {
+        width: 70px; /* Further reduce image width for very small screens */
+        height: 200px; /* Adjust height */
+    }
+    .about-content-card {
+        padding: 20px 15px;
+    }
+    .about-content-card h2 {
+        font-size: 1.6rem;
+        margin-bottom: 0.8rem;
+    }
+    .about-content-card p {
+        font-size: 0.9rem;
+    }
+
+    /* General Sections Adjustments */
+    .about-page-main-content {
+        padding: 20px 0.8rem;
+    }
+    .main-title, .section-title {
+        font-size: 1.8rem;
+        margin-bottom: 25px;
+    }
+    .intro-text, .section-intro {
+        font-size: 0.9rem;
+        margin-bottom: 30px;
+    }
+    .dna-section, .different-section, .founder-quote, .what-we-do, .why-join {
+        margin-bottom: 40px;
+        padding: 25px 15px;
+    }
+    .dna-section h2, .different-section h2,
+    .founder-quote h2, .what-we-do h2,
+    .activity-category h2, .benefit-category h2,
+    .belong-here h2, .join-cta h2 {
+        font-size: 1.4rem;
+        margin-bottom: 0.8rem;
+    }
+    .founder-quote blockquote {
+        font-size: 1.1rem;
+        padding: 0 10px;
+    }
+    .founder-quote blockquote::before, .founder-quote blockquote::after {
+        font-size: 3rem;
+    }
+    .activity-category ul li, .benefit-category ul li {
+        font-size: 0.85rem;
+    }
+    .tagline, .final-tagline {
+        font-size: 1rem;
+    }
+    .belong-points p, .cta-steps p {
+        font-size: 0.85rem;
+        padding: 8px 12px;
+    }
+}

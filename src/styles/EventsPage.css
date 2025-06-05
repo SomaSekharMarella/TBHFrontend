@@ -1,0 +1,405 @@
+/* --- General Page Container & Title --- */
+.events-page-container {
+    max-width: 1400px;
+    margin: 60px auto;
+    padding: 0 40px;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    color: #2d3748;
+}
+
+.page-title {
+    text-align: center;
+    color: #1e40af;
+    margin-bottom: 50px;
+    font-size: 3.2rem;
+    font-weight: 800;
+    letter-spacing: -0.05em;
+    line-height: 1.2;
+    background: linear-gradient(90deg, #1e40af, #3b82f6);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    position: relative;
+}
+
+.page-title::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, #3b82f6, #93c5fd);
+    margin: 15px auto 0;
+    border-radius: 2px;
+}
+/* --- Academic Year Filter --- */
+.academic-year-filter {
+    text-align: center;
+    margin-bottom: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    align-items: center;
+}
+
+.filter-label {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #4b5563;
+    margin-right: 12px;
+}
+
+.filter-button {
+    background-color: #f3f4f6;
+    color: #374151;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 1.05rem;
+    font-weight: 500;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    position: relative;
+    overflow: hidden;
+}
+
+.filter-button:hover {
+    background-color: #e5e7eb;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+}
+
+.filter-button.active {
+    background-color: #2563eb;
+    color: white;
+    box-shadow: 0 4px 14px rgba(37, 99, 235, 0.3);
+}
+
+.filter-button.active::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), transparent);
+    border-radius: 30px;
+}
+
+/* --- Events Grid --- */
+/* --- Events Grid --- */
+.events-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Changed to display one event vertically */
+    gap: 40px; /* You can adjust this gap if you want more or less space between cards */
+    justify-content: center; /* This will still center the grid itself if it's narrower than the container */
+}
+
+.no-events-message {
+    text-align: center;
+    color: #6b7280;
+    font-size: 1.3rem;
+    padding: 60px 0;
+    grid-column: 1 / -1;
+}
+
+/* --- Event Card Styling --- */
+.event-card {
+    background-color: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    padding: 0;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    min-height: 240px;
+    border: 1px solid #e5e7eb;
+    position: relative;
+}
+
+.event-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(30, 64, 175, 0.03), transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.event-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+}
+
+.event-card:hover::before {
+    opacity: 1;
+}
+
+/* --- Event Poster Container --- */
+.event-poster-container {
+    flex: 0 0 220px;
+    height: auto;
+    overflow: hidden;
+    position: relative;
+}
+
+.event-poster {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.event-card:hover .event-poster {
+    transform: scale(1.03);
+}
+
+/* --- Event Details (Text Content) --- */
+.event-details-center {
+    flex: 1;
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.event-title {
+    color: #1e40af;
+    margin: 0 0 12px 0;
+    font-size: 1.8rem;
+    font-weight: 700;
+    line-height: 1.3;
+    transition: color 0.3s ease;
+}
+
+.event-card:hover .event-title {
+    color: #1d4ed8;
+}
+
+.event-date {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #6b7280;
+    margin: 0 0 16px 0;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.event-date::before {
+    content: '📅';
+    font-size: 1em;
+}
+
+.event-speakers {
+    color: #4b5563;
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.speaker-heading {
+    font-weight: 600;
+    color: #1e40af;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.speaker-heading::before {
+    content: '🎤';
+    font-size: 0.9em;
+}
+
+.speaker-item {
+    color: #4b5563;
+    line-height: 1.5;
+    position: relative;
+    padding-left: 18px;
+}
+
+.speaker-item::before {
+    content: '•';
+    position: absolute;
+    left: 6px;
+    color: #3b82f6;
+}
+
+/* --- Event Actions (Arrow Button) --- */
+.event-actions-right {
+    position: absolute;
+    right: 24px;
+    bottom: 24px;
+    flex-shrink: 0;
+    width: 56px;
+    height: 56px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.report-button {
+    background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+    border: none;
+    border-radius: 50%;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+    color: white;
+    font-size: 1.8rem;
+    font-weight: bold;
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.report-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), transparent);
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.report-button:hover {
+    background: linear-gradient(135deg, #1d4ed8, #1e40af);
+    transform: scale(1.08);
+    box-shadow: 0 6px 16px rgba(29, 78, 216, 0.4);
+}
+
+.report-button:hover::before {
+    opacity: 1;
+}
+
+.arrow-icon {
+    display: block;
+    transition: transform 0.3s ease-in-out;
+}
+
+.report-button:hover .arrow-icon {
+    transform: translateX(4px);
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 1200px) {
+    .events-page-container {
+        max-width: 1000px;
+    }
+    
+    .events-grid {
+        grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+        gap: 30px;
+    }
+}
+
+@media (max-width: 992px) {
+    .events-page-container {
+        padding: 0 30px;
+    }
+    
+    .page-title {
+        font-size: 2.8rem;
+    }
+    
+    .event-poster-container {
+        flex: 0 0 180px;
+    }
+}
+
+@media (max-width: 768px) {
+    .events-page-container {
+        margin: 40px auto;
+        padding: 0 24px;
+    }
+
+    .page-title {
+        font-size: 2.4rem;
+        margin-bottom: 40px;
+    }
+
+    .academic-year-filter {
+        gap: 10px;
+        margin-bottom: 40px;
+    }
+
+    .filter-label {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 12px;
+    }
+
+    .events-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .event-card {
+        flex-direction: column;
+        min-height: auto;
+    }
+
+    .event-poster-container {
+        flex: 0 0 200px;
+        width: 100%;
+    }
+
+    .event-details-center {
+        padding: 24px;
+    }
+
+    .event-title {
+        font-size: 1.6rem;
+    }
+
+    .event-actions-right {
+        position: static;
+        margin-top: 20px;
+        align-self: flex-end;
+        width: 50px;
+        height: 50px;
+    }
+}
+
+@media (max-width: 480px) {
+    .events-page-container {
+        padding: 0 16px;
+    }
+    
+    .page-title {
+        font-size: 2rem;
+    }
+    
+    .event-poster-container {
+        flex: 0 0 160px;
+    }
+    
+    .event-details-center {
+        padding: 20px;
+    }
+    
+    .event-title {
+        font-size: 1.4rem;
+    }
+    
+    .event-date, .speaker-heading, .speaker-item {
+        font-size: 0.95rem;
+    }
+}

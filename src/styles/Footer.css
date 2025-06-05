@@ -1,0 +1,185 @@
+
+:root {
+  --footer-bg-dark: #001a35; /* Slightly darker than your original #001f3f for deeper contrast */
+  --footer-text-light: #e0e0e0; /* Softer white for general text */
+  --footer-heading-color: #f4d03f; /* Your existing accent yellow */
+  --footer-link-color: #00bcd4; /* Your existing accent blue */
+  --footer-link-hover-color: #f4d03f; /* Your existing accent yellow for hover */
+  --footer-bottom-text-color: #a0a0a0; /* Lighter grey for copyright */
+  --shadow-subtle: 0 4px 15px rgba(0, 0, 0, 0.05); /* Example shadow variable */
+  --transition-ease: all 0.3s ease; /* Consistent transition variable */
+}
+
+
+.footer {
+  background: var(--footer-bg-dark);
+  color: var(--footer-text-light);
+  padding: 2.5rem 1.5rem; /* Reduced overall vertical padding */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8rem; /* Increased horizontal gap between columns */
+  text-align: left;
+}
+
+/* Common Column Styles */
+.footer-column {
+  padding: 0.7rem; /* Slightly reduced padding within columns */
+}
+
+.footer-column h3 {
+  font-size: 1.9rem;
+  color: var(--footer-heading-color);
+  margin-bottom: 0.7rem; /* Slightly reduced margin */
+  font-weight: 700;
+}
+
+.footer-column h4 {
+  color: var(--footer-heading-color);
+  margin-bottom: 0.8rem; /* Reduced margin below headings */
+  font-size: 1.4rem;
+  font-weight: 600;
+  position: relative;
+  padding-bottom: 5px;
+}
+
+/* Underline effect for h4 headings */
+.footer-column h4::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 30px; /* Reduced underline length */
+  height: 3px;
+  background-color: var(--footer-link-color);
+  border-radius: 2px;
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-column ul li {
+  margin-bottom: 0.6rem; /* Reduced space between list items */
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+.footer-column p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 0.8rem; /* Slightly reduced margin */
+}
+
+/* Email link styling */
+.footer-contact a {
+  color: var(--footer-link-color);
+  text-decoration: none;
+  transition: var(--transition-ease);
+}
+.footer-contact a:hover {
+  color: var(--footer-link-hover-color);
+  text-decoration: underline;
+}
+
+/* Social Links Styling */
+.footer-social a {
+  display: flex;
+  align-items: center;
+  color: var(--footer-link-color);
+  text-decoration: none;
+  margin-bottom: 0.6rem; /* Reduced space between social links */
+  transition: var(--transition-ease);
+  font-size: 1.05rem;
+}
+
+.footer-social a:hover {
+  color: var(--footer-link-hover-color);
+  transform: translateX(5px);
+}
+
+.footer-social .social-icon {
+  font-size: 1.3rem;
+  margin-right: 10px;
+  color: inherit;
+}
+
+/* Footer Bottom (Copyright) */
+.footer-bottom {
+  margin-top: 2rem; /* Reduced top margin */
+  padding-top: 0.5rem; /* Reduced top padding */
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: center;
+  font-size: 1rem;
+  color: var(--footer-bottom-text-color);
+  line-height: 1.5;
+}
+
+.footer-bottom p {
+  margin: 0.5rem 0;
+}
+
+/* Optional: Footer Logo (if you use an image logo) */
+.footer-logo {
+  max-width: 150px;
+  height: auto;
+  margin-bottom: 1rem;
+}
+
+/* Responsive Design for Footer */
+@media (max-width: 992px) {
+  .footer-container {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem; /* Adjusted gap for 2 columns */
+  }
+  .footer-column {
+      text-align: left;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer {
+      padding: 2rem 1rem; /* Further reduced padding */
+  }
+  .footer-container {
+      grid-template-columns: 1fr;
+      gap: 1.5rem; /* Adjusted gap when stacked */
+      text-align: center;
+  }
+  .footer-column h4::after {
+      left: 50%;
+      transform: translateX(-50%);
+  }
+  .footer-social a {
+      justify-content: center;
+  }
+  .footer-bottom {
+      margin-top: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer {
+      padding: 1.5rem 0.5rem;
+  }
+  .footer-column h3 {
+      font-size: 1.5rem;
+  }
+  .footer-column h4 {
+      font-size: 1.1rem;
+  }
+  .footer-column ul li, .footer-column p, .footer-social a {
+      font-size: 0.85rem;
+  }
+  .footer-bottom {
+      font-size: 0.7rem;
+      margin-top: 1.5rem;
+  }
+}

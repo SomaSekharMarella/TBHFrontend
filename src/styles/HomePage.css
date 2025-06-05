@@ -1,0 +1,697 @@
+/* ====== Import Google Font ====== */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800;900&display=swap');
+/* Added 800 and 900 for more font weight options */
+
+/* ====== Root Theme Variables ====== */
+:root {
+  --primary: #6C63FF; /* Original primary */
+  --primary-dark: #4A45B1; /* Original primary dark */
+  --secondary: #FF6584; /* Original secondary */
+  --accent: #00D9F5; /* Original accent */
+  --dark: #2D2D3A; /* Original dark text */
+  --light: #F8F9FA; /* Original light background */
+  --white: #FFFFFF;
+  --gradient-1: linear-gradient(135deg, #6C63FF 0%, #4A45B1 100%);
+  --gradient-2: linear-gradient(135deg, #FF6584 0%, #FF4B6E 100%);
+  --card-shadow: 0 10px 30px rgba(108, 99, 255, 0.1); /* Original card shadow */
+  --transition: all 0.3s ease-in-out; /* Smooth transitions */
+
+  /* NEW: Custom Sky Blue Gradient Background */
+  --body-gradient-bg: linear-gradient(120deg, #e0f7fa 0%, #b2ebf2 100%);
+
+  /* Refined Shadow Variables for consistent use */
+  --shadow-subtle: 0 4px 15px rgba(0, 0, 0, 0.05);
+  --shadow-medium: 0 12px 30px rgba(0, 0, 0, 0.1);
+  --shadow-hover: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* ====== Base Styles ====== */
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100vh; /* Ensure body takes full height for gradient */
+  overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: var(--body-gradient-bg); /* Sky blue gradient background */
+  color: var(--dark);
+  line-height: 1.6;
+  scroll-behavior: smooth; /* Smooth scrolling for anchor links */
+}
+
+a {
+  text-decoration: none;
+  color: var(--primary);
+  transition: var(--transition);
+}
+
+a:hover {
+  color: var(--primary-dark);
+}
+
+/* ====== Navbar Styles (Enhanced) ====== */
+.navbar {
+  background-color: #0d1a2d; /* Dark blue, almost black, from image */
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky; /* Sticky navbar for a modern feel */
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: var(--shadow-medium); /* Subtle shadow for depth */
+}
+
+.navbar-brand {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--white);
+  letter-spacing: 0.5px;
+}
+
+.navbar-nav {
+  display: flex;
+  list-style: none;
+  margin: 0; /* Ensure no default list margin */
+  padding: 0; /* Ensure no default list padding */
+}
+
+.nav-item {
+  margin-left: 2.5rem; /* Increased spacing between nav items */
+}
+
+.nav-link {
+  color: var(--white);
+  font-weight: 500;
+  font-size: 1rem;
+  padding: 0.5rem 0;
+  position: relative;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background: var(--accent);
+  transition: width 0.3s ease-in-out;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* ====== Reusable Components: The "One Box Structure" ====== */
+.section {
+  padding: 4rem 2.5rem; /* Ample padding inside the box */
+  max-width: 1000px; /* Consistent width for all main content boxes */
+  margin: 3rem auto; /* Vertical spacing between sections and centering */
+  background-color: var(--white); /* White background for the boxes */
+  border-radius: 15px; /* Rounded corners for modern look */
+  box-shadow: var(--shadow-medium); /* Standard shadow for all boxes */
+  text-align: center; /* Center content within the box */
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Smooth hover transition */
+}
+
+.section:hover {
+  transform: translateY(-8px); /* Lift effect on hover */
+  box-shadow: var(--shadow-hover); /* More pronounced shadow on hover */
+}
+
+.section-title {
+  font-size: 2.8rem; /* Consistent large heading size */
+  font-weight: 800; /* Bolder font weight */
+  margin-bottom: 2.5rem;
+  color: var(--primary-dark);
+  text-align: center;
+  position: relative;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 70px;
+  height: 4px;
+  background: var(--primary);
+  border-radius: 2px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.9rem 2.2rem;
+  background-color: var(--primary);
+  color: var(--white);
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: var(--transition);
+  cursor: pointer;
+  border: none;
+}
+
+.btn:hover {
+  background-color: var(--primary-dark);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(108, 99, 255, 0.4); /* Use primary color for shadow */
+}
+
+/* ====== Hero Section ====== */
+.hero-section {
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  /* Adjust padding-top to account for sticky navbar */
+  padding-top: 60px; /* Assuming navbar height is around 60px */
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* --- CRITICAL CHANGE HERE --- */
+  /* Reduced opacity of the black overlay to make the background image brighter */
+  background-color: rgba(0, 0, 0, 0.3); /* Changed from 0.6 to 0.3 */
+  /* If you want it even brighter, you can go lower, e.g., 0.1 or even 0 */
+  /* background-color: rgba(0, 0, 0, 0.1); */
+  /* Or remove it entirely if you want full brightness and readability isn't an issue: */
+  /* background-color: transparent; */
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+  color: var(--white); /* Ensure text is white */
+}
+
+.hero-title {
+  font-size: 2.5rem; /* Smaller than tagline as requested */
+  font-weight: 900;
+  color: var(--white);
+  margin-bottom: 0.8rem;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  letter-spacing: 1px;
+}
+
+.hero-tagline {
+  font-size: 3.2rem; /* Larger than title as requested */
+  font-weight: 700;
+  color: gold; /* Specific gold color for tagline */
+  font-style: italic; /* Italic for tagline */
+  opacity: 0.98; /* Increased opacity */
+  margin-bottom: 2.5rem;
+  max-width: 900px;
+  line-height: 1.2;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3); /* Slightly stronger shadow */
+}
+
+
+.about-club-section {
+  /* Inherits general .section styles: white background, border-radius, shadow, centering */
+  max-width: 850px; /* Make this box slightly narrower */
+  padding: 3.5rem 2.5rem; /* Adjusted padding for this specific box */
+}
+
+.about-club-section h2 {
+  /* This specific h2 rule ensures spacing after the heading within this section */
+  font-size: 2.8rem; /* Consistent large heading size */
+  font-weight: 800; /* Bolder font weight */
+  color: var(--primary-dark);
+  margin-bottom: 2.5rem; /* <<< --- THIS IS THE KEY CHANGE FOR SPACING --- >>> */
+  text-align: center;
+  position: relative;
+  /* The ::after pseudo-element for the underline will be handled by the general .section-title or explicitly here if needed */
+}
+
+/* Ensure the underline for h2 is correctly applied here if it wasn't from .section-title */
+.about-club-section h2::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 70px;
+  height: 4px;
+  background: var(--primary);
+  border-radius: 2px;
+}
+
+
+.about-club-section p {
+  font-size: 1.15rem;
+  line-height: 1.7;
+  color: var(--dark);
+  max-width: 700px; /* Constrain paragraph width for better readability within this box */
+  margin: 0 auto; /* Center the paragraph if it's narrower than the box */
+}
+
+.about-club-section b {
+  color: var(--primary); /* Vibrant primary color for bold text */
+  font-weight: 700;
+}
+
+
+/* ====== What is Blockchain Section ====== */
+/* This section will also use the general .section styling */
+.what-is-blockchain-section {
+  /* Inherits general .section styles: white background, border-radius, shadow, centering */
+  max-width: 950px; /* Make this box slightly wider */
+  padding: 4rem 3rem; /* Adjusted padding for this specific box */
+}
+
+.what-is-blockchain-section h2 {
+  /* This specific h2 rule ensures spacing after the heading within this section */
+  font-size: 2.8rem; /* Consistent large heading size */
+  font-weight: 800; /* Bolder font weight */
+  color: var(--primary-dark);
+  margin-bottom: 2.5rem; /* <<< --- THIS IS THE KEY CHANGE FOR SPACING --- >>> */
+  text-align: center;
+  position: relative;
+}
+
+/* Ensure the underline for h2 is correctly applied here if it wasn't from .section-title */
+.what-is-blockchain-section h2::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 70px;
+  height: 4px;
+  background: var(--primary);
+  border-radius: 2px;
+}
+
+
+.blockchain-explain {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+  max-width: 800px; /* Max-width for the flex container within this box */
+  margin: 0 auto;
+  text-align: left; /* Align text within the explanation to the left */
+}
+
+.blockchain-icon {
+  flex-shrink: 0;
+  font-size: 3.5rem;
+  color: #f4d03f;
+}
+
+.blockchain-text {
+  flex-grow: 1;
+}
+
+.blockchain-text p {
+  font-size: 1.15rem;
+  line-height: 1.7;
+  margin-bottom: 1.5rem; /* Space after paragraph in text block */
+  color: var(--dark);
+}
+
+.blockchain-text ul {
+  list-style-type: disc;
+  padding-left: 1.8rem;
+}
+
+.blockchain-text li {
+  font-size: 1rem;
+  margin-bottom: 0.6rem;
+}
+/* Ensure these are in your full CSS, I'm just showing the relevant sections */
+/* You should also check the responsive media queries for these sections */
+/* For example, ensure max-width adjustments don't break on small screens */
+@media (max-width: 1024px) {
+  .about-club-section,
+  .what-is-blockchain-section {
+    max-width: 90%; /* Adjust to a percentage for responsiveness */
+    /* You can still keep a slight difference if desired, e.g.,
+       .about-club-section { max-width: 85%; }
+       .what-is-blockchain-section { max-width: 90%; }
+    */
+  }
+}
+
+@media (max-width: 768px) {
+  .about-club-section,
+  .what-is-blockchain-section {
+    max-width: 95%; /* Adjust for even smaller screens */
+    padding: 2.5rem 1.5rem; /* Reduce padding on smaller screens */
+  }
+}
+
+/* ====== What We Do Section - Full Width ====== */
+.what-we-do-section {
+  width: 100%;
+  max-width: 100%; /* Changed from 1200px to full width */
+  padding: 4rem 0; /* Side padding removed (handled by container) */
+  margin: 0 auto;
+  background: white;
+}
+.what-we-do-section h2 {
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: var(--primary-dark);
+  margin-bottom: 2.5rem;
+  text-align: center;
+  position: relative;
+}
+
+.what-we-do-section h2::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 70px;
+  height: 4px;
+  background: var(--primary);
+  border-radius: 2px;
+}
+/* Flex container now stretches full width */
+.highlights-container {
+  display: flex;
+  justify-content: center; /* Center cards horizontally */
+  flex-wrap: wrap;
+  gap: 2rem;
+  padding: 0 2rem; /* Side padding added here instead */
+  width: 100%;
+  max-width: 100%;
+}
+
+/* Individual cards - now wider */
+.highlight-card {
+  background: var(--white);
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  transition: var(--transition);
+  border: 1px solid rgba(108, 99, 255, 0.05);
+  flex: 1 1 calc(25% - 3rem); /* 25% width with larger gap compensation */
+  min-width: 250px; /* Slightly larger minimum */
+  max-width: 300px; /* Optional: constrain max card width */
+}
+
+/* ====== Responsive Adjustments ====== */
+@media (max-width: 1200px) {
+  .highlight-card {
+    flex: 1 1 calc(33.33% - 2rem); /* 3 cards on medium screens */
+  }
+}
+
+@media (max-width: 992px) {
+  .highlight-card {
+    flex: 1 1 calc(50% - 2rem); /* 2 cards */
+    max-width: 400px; /* Wider cards when stacked */
+  }
+}
+
+@media (max-width: 768px) {
+  .highlight-card {
+    flex: 1 1 100%; /* 1 card */
+    max-width: 500px; /* Even wider single column */
+  }
+  
+  .what-we-do-section h2 {
+    font-size: 2.2rem;
+  }
+}
+
+/* ====== Join Movement Section ====== */
+/* This section remains distinct with its gradient background */
+.join-movement-section {
+  background: var(--gradient-2);
+  padding: 6rem 2.5rem; /* Consistent padding */
+  text-align: center;
+  color: var(--white);
+  margin: 3rem auto; /* Consistent margin */
+  max-width: 1000px; /* Make it a box like other sections */
+  border-radius: 15px; /* Consistent border radius */
+  box-shadow: var(--shadow-medium); /* Consistent shadow */
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.join-movement-section:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-hover);
+}
+
+.join-movement-section .section-content {
+  /* This inner div is for the translucent background */
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 3rem;
+  background: rgba(255, 255, 255, 0.15); /* Slightly more opaque for better readability */
+  backdrop-filter: blur(8px); /* Slightly less blur */
+  border-radius: 15px; /* Consistent border radius */
+  border: 1px solid rgba(255, 255, 255, 0.3); /* Slightly more visible border */
+}
+
+.join-movement-section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+}
+
+.join-movement-section p {
+  font-size: 1.1rem; /* Slightly larger paragraph */
+  margin-bottom: 2rem;
+  line-height: 1.8;
+}
+
+.join-movement-section b {
+  font-weight: 600;
+}
+
+.join-btn {
+  display: inline-block;
+  padding: 1rem 2.5rem;
+  background-color: var(--white);
+  color: var(--secondary);
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: var(--transition);
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.join-btn:hover {
+  background-color: var(--accent);
+  color: var(--white);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+
+/* ====== Animations ====== */
+/* Update your HomePage.css file with this exact block for animations */
+
+/* In your CSS file (e.g., HomePage.css or global.css) */
+
+/* ====== Animations ====== */
+
+/* Keyframes for the 'Bounce In' effect for individual letters */
+@keyframes bounceInLetter {
+  0% {
+    opacity: 0;
+    transform: scale(0.3) translateY(-100px); /* Start small, very high up */
+    filter: blur(5px);
+  }
+  20% {
+    opacity: 1;
+    transform: scale(1.05) translateY(10px); /* Overshoot and bounce down slightly */
+    filter: blur(0);
+  }
+  40% {
+    transform: scale(0.9) translateY(-5px); /* Bounce back up slightly */
+  }
+  60% {
+    transform: scale(1.02) translateY(2px); /* Settle down slowly */
+  }
+  80% {
+    transform: scale(0.98) translateY(-1px); /* Slight final adjust */
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0); /* Final resting state */
+    filter: blur(0);
+  }
+}
+
+/* --- Styling for Animated Hero Text Letters --- */
+/* This targets the 'letter-animate' class from your AnimatedText component */
+.letter-animate {
+  display: inline-block; /* Essential for each letter to animate independently */
+  opacity: 0; /* Start invisible */
+  transform: scale(0.3) translateY(-100px); /* Initial position for the bounce */
+  filter: blur(5px); /* Initial blur for the bounce */
+  animation: bounceInLetter 1.2s cubic-bezier(0.68, -0.55, 0.27, 1.55) forwards; /* Apply the bounce animation */
+  /*
+    1.2s: Duration of each letter's animation.
+    cubic-bezier(...): A custom easing function for a more pronounced bounce.
+    forwards: Ensures the animation stays at its end state (visible).
+    animation-delay is set inline in JSX for staggering.
+  */
+}
+
+/* ====== Hero Section Text Styling (No animation properties here) ====== */
+/* These styles apply to the *parent* spans generated by AnimatedText,
+   and their font size will be inherited by the individual letter spans. */
+.hero-title {
+  font-size: 3.5rem; /* Your desired title size */
+  color: #fff; /* Your desired title color */
+  font-weight: 800; /* Example */
+  text-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+  line-height: 1.2; /* Adjust line height if letters are too close */
+}
+
+.hero-tagline {
+  font-size: 2.8rem; /* Your desired tagline size */
+  color: gold; /* As per your previous request */
+  font-style: italic; /* As per your previous request */
+  opacity: 0.95; /* As per your previous request */
+  line-height: 1.2; /* As per your previous request */
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2); /* As per your previous request */
+}
+
+
+/* ====== Remove ALL other conflicting animation CSS from your file! ====== */
+/* DELETE these blocks if they are still in your CSS: */
+/*
+@keyframes fadeInUp { ... }
+@keyframes typing { ... }
+@keyframes blink { ... }
+.hero-title.animate-fade-in-up { ... }
+.typewriter-container { ... }
+.hero-tagline.typewriter-text { ... }
+.animate-hero-text { ... }
+@keyframes fadeInUpBig { ... }
+*/
+
+/* ====== Responsive adjustments for Hero text (inherits down to letters) ====== */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2.5rem;
+  }
+  .hero-tagline {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .hero-title {
+    font-size: 2rem;
+  }
+  .hero-tagline {
+    font-size: 1.6rem;
+  }
+}
+
+
+/* ====== Responsive Design ====== */
+@media (max-width: 1024px) {
+  .highlights-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .blockchain-explain {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .blockchain-icon {
+    margin-bottom: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    padding: 1rem;
+  }
+  .navbar-nav {
+    margin-top: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .nav-item {
+    margin: 0.5rem 1rem;
+  }
+
+  .hero-title {
+    font-size: 2rem; /* Adjusted for smaller screens */
+  }
+
+  .hero-tagline {
+    font-size: 2.5rem; /* Adjusted for smaller screens */
+  }
+
+  .section {
+    padding: 2.5rem 1.5rem;
+    margin: 2rem auto;
+  }
+
+  .blockchain-explain {
+    padding: 1rem;
+  }
+
+  .join-movement-section .section-content {
+    padding: 2rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .hero-title {
+    font-size: 1.8rem;
+  }
+
+  .hero-tagline {
+    font-size: 2rem;
+  }
+
+  .highlights-container {
+    grid-template-columns: 1fr;
+  }
+
+  .section-title {
+    font-size: 2.2rem;
+  }
+
+  .section {
+    padding: 2rem 1rem;
+  }
+
+  .footer-content {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .footer-column h4::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}

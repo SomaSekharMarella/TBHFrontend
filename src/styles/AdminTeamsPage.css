@@ -1,0 +1,325 @@
+/* --- General Page Container & Title --- */
+.admin-teams-container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+}
+
+.page-title {
+    text-align: center;
+    color: #1a237e;
+    margin-bottom: 40px;
+    font-size: 2.8em;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+/* --- Toggle Button for Form --- */
+.toggle-form-button {
+    display: block; /* Make it a block-level button */
+    margin: 0 auto 30px auto; /* Center it and add bottom margin */
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.toggle-form-button:hover {
+    background-color: #0056b3;
+}
+
+/* --- Add/Edit Team Member Form --- */
+.team-member-form {
+    background-color: #f8f8f8;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    padding: 30px;
+    margin-bottom: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px; /* Spacing between form elements */
+}
+
+.team-member-form h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 25px;
+    font-size: 2em;
+}
+
+.team-member-form label {
+    font-weight: 600;
+    color: #444;
+    display: flex;
+    flex-direction: column;
+    font-size: 0.95em;
+}
+
+.team-member-form input[type="text"],
+.team-member-form input[type="number"],
+.team-member-form input[type="url"],
+.team-member-form input[type="file"],
+.team-member-form select {
+    padding: 12px;
+    margin-top: 8px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 1em;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.checkbox-label {
+    flex-direction: row !important;
+    align-items: center;
+    gap: 10px;
+    font-weight: normal !important;
+    font-size: 1em;
+}
+
+.checkbox-label input[type="checkbox"] {
+    width: auto; /* Reset width for checkbox */
+    margin-top: 0;
+}
+
+.radio-group {
+    display: flex;
+    gap: 25px;
+    margin-top: 8px;
+}
+
+.radio-group label {
+    flex-direction: row !important;
+    align-items: center;
+    font-weight: normal !important;
+    font-size: 1em;
+}
+
+.submit-form-button, .cancel-edit-button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.1em;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    margin-top: 15px;
+}
+
+.submit-form-button:hover {
+    background-color: #218838;
+}
+
+.cancel-edit-button {
+    background-color: #6c757d; /* Gray for cancel */
+    margin-left: 10px;
+}
+
+.cancel-edit-button:hover {
+    background-color: #5a6268;
+}
+
+.current-photo-info {
+    font-size: 0.85em;
+    color: #666;
+    margin-top: 5px;
+}
+
+/* --- Admin Members List --- */
+.admin-members-list {
+    margin-top: 50px;
+}
+
+.admin-members-list h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 30px;
+    font-size: 2.2em;
+}
+
+/* --- Admin Team Member Card Styling --- */
+.admin-member-card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    padding: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+    border: 1px solid #eee;
+    transition: transform 0.2s ease-in-out;
+}
+
+.admin-member-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+}
+
+.member-info-left {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-shrink: 0;
+}
+
+.member-photo-container {
+    width: 80px; /* Smaller photo for admin list */
+    height: 80px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid #007bff;
+    flex-shrink: 0;
+}
+
+.member-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.member-details-text {
+    text-align: left;
+}
+
+.member-name {
+    color: #1a237e;
+    font-size: 1.3em;
+    font-weight: 600;
+    margin: 0 0 5px 0;
+}
+
+.member-position, .member-id, .member-order {
+    color: #555;
+    font-size: 0.9em;
+    margin: 0 0 3px 0;
+}
+
+.member-contact-info {
+    flex-grow: 1; /* Allows this section to take available space */
+    text-align: left;
+    font-size: 0.9em;
+    color: #666;
+    padding-left: 20px;
+    border-left: 1px solid #eee; /* Separator */
+}
+
+.member-contact-info p {
+    margin: 0 0 5px 0;
+}
+
+.member-actions {
+    flex-shrink: 0;
+    display: flex;
+    gap: 10px;
+}
+
+.edit-button, .delete-button {
+    padding: 8px 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.9em;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+    border: none;
+    color: white;
+}
+
+.edit-button {
+    background-color: #ffc107; /* Yellow for edit */
+}
+
+.edit-button:hover {
+    background-color: #e0a800;
+}
+
+.delete-button {
+    background-color: #dc3545; /* Red for delete */
+}
+
+.delete-button:hover {
+    background-color: #c82333;
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 992px) {
+    .admin-member-card {
+        flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+        justify-content: center;
+        text-align: center;
+    }
+
+    .member-info-left {
+        width: 100%;
+        justify-content: center;
+        margin-bottom: 15px;
+    }
+
+    .member-details-text {
+        text-align: center;
+    }
+
+    .member-contact-info {
+        width: 100%;
+        padding-left: 0;
+        border-left: none;
+        border-top: 1px dashed #eee;
+        padding-top: 15px;
+        margin-top: 15px;
+        text-align: center;
+    }
+
+    .member-actions {
+        width: 100%;
+        justify-content: center;
+        margin-top: 15px;
+    }
+}
+
+@media (max-width: 768px) {
+    .admin-teams-container {
+        padding: 0 15px;
+    }
+
+    .page-title {
+        font-size: 2.2em;
+    }
+
+    .team-member-form {
+        padding: 20px;
+        gap: 12px;
+    }
+
+    .team-member-form h2 {
+        font-size: 1.6em;
+    }
+
+    .member-photo-container {
+        width: 60px;
+        height: 60px;
+    }
+
+    .member-name {
+        font-size: 1.1em;
+    }
+
+    .member-position, .member-id, .member-order, .member-contact-info p {
+        font-size: 0.8em;
+    }
+
+    .edit-button, .delete-button {
+        padding: 6px 12px;
+        font-size: 0.8em;
+    }
+}

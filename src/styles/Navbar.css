@@ -1,0 +1,168 @@
+/* Reset global spacing */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html, #root, .App, main {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.page-content {
+  padding-top: 0; /* Remove padding since we're handling it in body */
+}
+
+/* Navbar styles */
+.navbar {
+  background-color: #00204E;
+  padding: 1rem 2rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  color: #f4d03f;
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links li {
+  margin-left: 2rem;
+}
+
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  font-weight: 600;
+  border-radius: 4px;
+  padding: 6px 12px;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: #00bcd4;
+  background: rgba(0, 188, 212, 0.15);
+  transform: scale(1.05);
+}
+
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+.hamburger {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background-color: #fff;
+  position: relative;
+  transition: background-color 0.3s ease;
+}
+
+.hamburger::before,
+.hamburger::after {
+  content: '';
+  position: absolute;
+  width: 24px;
+  height: 2px;
+  background-color: #fff;
+  transition: transform 0.3s ease;
+}
+
+.hamburger::before {
+  top: -8px;
+}
+
+.hamburger::after {
+  bottom: -8px;
+}
+
+.hamburger.open {
+  background-color: transparent;
+}
+
+.hamburger.open::before {
+  transform: rotate(45deg);
+  top: 0;
+}
+
+.hamburger.open::after {
+  transform: rotate(-45deg);
+  bottom: 0;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: #00204E;
+    padding: 1rem;
+    flex-direction: column;
+    border-top: 1px solid #00bcd4;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .nav-links li {
+    margin:0;
+  }
+}
+
+/* Padding to body so content doesn't go under navbar */
+body {
+  padding-top: 64px; /* Single source of padding to prevent content from going under navbar */
+}
+.navbar-brand .logo {
+    display: flex; /* Makes the logo and text align horizontally */
+    align-items: center; /* Vertically centers the logo and text */
+    gap: 10px; /* Adds space between the logo image and "The Blockchain Hub" text */
+    font-size: 1.5rem; /* Adjusts the font size of "The Blockchain Hub" text */
+    font-weight: bold;
+}
+
+.navbar-brand .logo .club-logo {
+    height: 40px; /* Set a fixed height for your logo. Adjust this value as needed. */
+    width: auto; /* 'auto' maintains the image's aspect ratio */
+    /* If your logo looks stretched or too wide, you might want to try: */
+    /* max-width: 50px; */ /* Example: Set a maximum width */
+    /* object-fit: contain; */ /* Ensures the entire image is visible within its box */
+    vertical-align: middle; /* Helps align the image nicely with the text baseline */
+}

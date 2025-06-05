@@ -1,0 +1,155 @@
+/* client/src/styles/GalleryPage.css */
+
+/* --- CSS Variables for consistency --- */
+:root {
+    --primary-color: #2563eb; /* Blue for active states, links */
+    --secondary-color: #1a237e; /* Dark blue for titles */
+    --text-color-dark: #333;
+    --text-color-medium: #555;
+    --text-color-light: #666;
+    --text-color-lighter: #777;
+    --background-light: #ffffff;
+    --background-medium: #f8f8f8;
+    --border-color: #e0e0e0;
+    --shadow-light: rgba(0, 0, 0, 0.05);
+    --shadow-medium: rgba(0, 0, 0, 0.1);
+    --shadow-strong: rgba(0, 0, 0, 0.15);
+    --spacing-xs: 5px;
+    --spacing-sm: 10px;
+    --spacing-md: 15px;
+    --spacing-lg: 20px;
+    --spacing-xl: 25px;
+    --spacing-xxl: 30px;
+}
+
+/* --- General Page Container & Title --- */
+.gallery-page-container {
+    max-width: 1200px;
+    margin: 2.5rem auto; /* Consistent vertical margin */
+    padding: 0 1.25rem; /* Consistent horizontal padding */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--text-color-dark);
+}
+
+.page-title {
+    text-align: center;
+    color: var(--secondary-color);
+    margin-bottom: 2.5rem; /* Consistent margin */
+    font-size: 2.8em;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+}
+
+/* --- Gallery Items Grid --- */
+.gallery-items-grid {
+    display: grid;
+    /* --- CHANGE: Force 2 columns on larger screens --- */
+    grid-template-columns: repeat(2, 1fr); /* Two columns, each taking equal space */
+    gap: var(--spacing-xxl); /* Spacing between image cards */
+    justify-content: center;
+}
+
+.no-gallery-items-message {
+    text-align: center;
+    color: var(--text-color-lighter);
+    font-size: 1.2em;
+    padding: 3.125rem 0;
+    grid-column: 1 / -1; /* Make message span all columns */
+}
+
+/* --- Individual Gallery Item Card Styling --- */
+.gallery-item-card {
+    background-color: var(--background-light);
+    border-radius: 12px;
+    box-shadow: 0 6px 18px var(--shadow-medium);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; /* Ensures image corners are rounded */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.gallery-item-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px var(--shadow-strong);
+}
+
+.gallery-image-container {
+    width: 100%;
+    height: 220px; /* Fixed height for images, adjust as needed */
+    overflow: hidden;
+    background-color: #f0f0f0; /* Placeholder background */
+}
+
+.gallery-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Cover the container, cropping if necessary */
+    display: block;
+    transition: transform 0.3s ease-in-out;
+}
+
+.gallery-item-card:hover .gallery-image {
+    transform: scale(1.05); /* Slight zoom effect on hover */
+}
+
+.gallery-details {
+    padding: var(--spacing-xl); /* Consistent padding */
+    text-align: left;
+}
+
+.gallery-title {
+    color: var(--secondary-color);
+    font-size: 1.4em;
+    font-weight: 700;
+    margin-bottom: var(--spacing-xs);
+}
+
+.gallery-description {
+    color: var(--text-color-medium);
+    font-size: 0.95em;
+    line-height: 1.5;
+    margin-bottom: var(--spacing-sm);
+}
+
+.gallery-year,
+.gallery-date {
+    color: var(--text-color-light);
+    font-size: 0.85em;
+    margin-bottom: 0;
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 768px) {
+    .gallery-page-container {
+        padding: 0 0.9375rem; /* 15px */
+    }
+
+    .page-title {
+        font-size: 2.2em;
+    }
+
+    .gallery-items-grid {
+        grid-template-columns: 1fr; /* Stack cards vertically on smaller screens */
+        gap: var(--spacing-lg);
+    }
+
+    .gallery-item-card {
+        padding-bottom: var(--spacing-lg); /* Adjust padding for stacked cards */
+    }
+
+    .gallery-image-container {
+        height: 200px; /* Adjust height for smaller screens */
+    }
+
+    .gallery-details {
+        padding: var(--spacing-lg);
+    }
+
+    .gallery-title {
+        font-size: 1.2em;
+    }
+
+    .gallery-description {
+        font-size: 0.9em;
+    }
+}

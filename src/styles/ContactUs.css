@@ -1,0 +1,322 @@
+/* client/src/styles/ContactUs.css */
+
+/* --- General Page Container --- */
+.contact-us-page-container {
+    display: flex; /* Use flexbox for two-column layout */
+    min-height: calc(100vh - var(--navbar-height, 80px) - var(--footer-height, 60px)); /* Adjust for navbar/footer height */
+    max-width: 1200px; /* Max width of the entire contact section */
+    margin: 50px auto; /* Center the container with vertical margin */
+    border-radius: 15px; /* Rounded corners for the whole container */
+    overflow: hidden; /* Ensures child elements respect border-radius */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15); /* Subtle shadow */
+    font-family: 'Inter', sans-serif; /* Consistent font */
+}
+
+/* --- Left Panel (Background Image Section) --- */
+.contact-left-panel {
+    flex: 1; /* Takes up 1 part of the available space */
+    min-width: 300px; /* Minimum width for the left panel */
+    background-size: cover; /* Cover the entire area */
+    background-position: center; /* Center the background image */
+    background-repeat: no-repeat;
+    position: relative; /* For overlay and content positioning */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    color: white; /* Text color for content on this panel */
+    text-align: center;
+}
+
+.contact-left-panel .overlay {
+    /* Removed background color for brightness */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.left-panel-content {
+    position: relative;
+    z-index: 2; /* Ensure content is above the overlay */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px; /* Spacing between elements */
+}
+
+.blockchain-logo {
+    width: 150px; /* Adjust logo size */
+    height: 150px;
+    object-fit: contain;
+    margin-bottom: 20px;
+}
+
+.connect-text {
+    font-size: 2.2em; /* Larger text for "CONNECT WITH TBH" */
+    font-weight: 700;
+    line-height: 1.1;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* --- Right Panel (Form and Contact Info) --- */
+.contact-right-panel {
+    flex: 2; /* Takes up 2 parts of the available space (wider) */
+    background-color: #ffffff;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px; /* Spacing between major sections */
+}
+
+.contact-title {
+    text-align: center;
+    color: #333;
+    font-size: 2.5em;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.contact-title span {
+    font-size: 0.8em; /* Adjust icon size relative to text */
+    margin-left: 10px;
+}
+
+/* --- Form Styling --- */
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px; /* Spacing between form fields */
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+    width: 100%;
+    padding: 14px 18px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 1em;
+    font-family: 'Inter', sans-serif;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    box-sizing: border-box; /* Include padding in width */
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+    color: #a0a0a0;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.15);
+    outline: none;
+}
+
+.contact-form textarea {
+    resize: vertical; /* Allow vertical resizing */
+    min-height: 100px;
+}
+
+.send-button {
+    padding: 15px 25px;
+    background-color: #007bff; /* Primary button color */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 12px rgba(0, 123, 255, 0.2);
+}
+
+.send-button:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+.send-button:active {
+    transform: translateY(0);
+}
+
+/* --- Official Handles Section --- */
+.official-handles {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+}
+
+.official-handles h3 {
+    color: #333;
+    font-size: 1.4em;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.official-handles p {
+    font-size: 1em;
+    color: #555;
+    margin-bottom: 8px;
+}
+
+.official-handles a {
+    color: #007bff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.official-handles a:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px; /* Spacing between icons */
+    margin-top: 15px;
+}
+
+.social-icon-link {
+    display: flex; /* To center SVG */
+    align-items: center;
+    justify-content: center;
+    width: 45px; /* Size of the icon container */
+    height: 45px;
+    background-color: #e0e0e0; /* Default background */
+    border-radius: 50%; /* Circular background */
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease; /* Added box-shadow transition */
+    color: #333; /* Default icon color */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* Subtle initial shadow */
+}
+
+.social-icon {
+    width: 24px; /* Size of the SVG icon */
+    height: 24px;
+    fill: currentColor; /* Use parent's color */
+}
+
+.social-icon-link:hover {
+    transform: translateY(-3px) scale(1.1); /* Lift and slightly enlarge on hover */
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2); /* More prominent shadow on hover */
+}
+
+/* Specific social media colors */
+/* Instagram */
+.social-icon-link:nth-child(1) {
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    color: white;
+}
+.social-icon-link:nth-child(1):hover {
+    filter: brightness(1.2); /* Make it brighter on hover */
+}
+
+/* Telegram */
+.social-icon-link:nth-child(2) {
+    background-color: #0088CC;
+    color: white;
+}
+.social-icon-link:nth-child(2):hover {
+    background-color: #006699; /* Darker shade on hover */
+}
+
+/* LinkedIn */
+.social-icon-link:nth-child(3) {
+    background-color: #0077B5;
+    color: white;
+}
+.social-icon-link:nth-child(3):hover {
+    background-color: #005582; /* Darker shade on hover */
+}
+
+
+/* --- Messages (Success/Error) --- */
+.success-message {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    text-align: center;
+    font-weight: 500;
+}
+
+.error-message {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    text-align: center;
+    font-weight: 500;
+}
+
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 768px) {
+    .contact-us-page-container {
+        flex-direction: column; /* Stack panels vertically on smaller screens */
+        margin: 30px auto;
+        border-radius: 10px;
+    }
+
+    .contact-left-panel {
+        min-height: 250px; /* Give left panel some height when stacked */
+        padding: 20px;
+        border-bottom-left-radius: 0;
+        border-top-right-radius: 10px; /* Adjust border radius for stacked layout */
+    }
+
+    .contact-right-panel {
+        padding: 30px;
+        border-top-right-radius: 0;
+        border-bottom-left-radius: 10px; /* Adjust border radius for stacked layout */
+    }
+
+    .contact-title {
+        font-size: 2em;
+    }
+
+    .connect-text {
+        font-size: 1.8em;
+    }
+
+    .blockchain-logo {
+        width: 120px;
+        height: 120px;
+    }
+
+    .social-icons {
+        justify-content: center; /* Center icons when stacked */
+    }
+}
+
+@media (max-width: 480px) {
+    .contact-us-page-container {
+        margin: 20px 10px;
+    }
+
+    .contact-right-panel {
+        padding: 20px;
+    }
+
+    .contact-title {
+        font-size: 1.8em;
+    }
+
+    .connect-text {
+        font-size: 1.5em;
+    }
+
+    .blockchain-logo {
+        width: 100px;
+        height: 100px;
+    }
+}

@@ -1,0 +1,160 @@
+/* client/src/pages/AdminDashboard.css */
+.admin-dashboard-container {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 20px auto;
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+.admin-dashboard-title {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.admin-logout-button {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    margin-bottom: 30px;
+    transition: background-color 0.3s ease;
+}
+
+.admin-logout-button:hover {
+    background-color: #d32f2f;
+}
+
+.admin-dashboard-container p {
+    color: #666;
+    margin-bottom: 30px;
+}
+/* --- Admin Dashboard Container --- */
+.admin-dashboard-container {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 0 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+    text-align: center;
+}
+
+.admin-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    flex-wrap: wrap; /* Allow wrapping on small screens */
+    gap: 15px; /* Space between items on wrap */
+}
+
+.page-title {
+    color: #1a237e;
+    font-size: 2.5em;
+    font-weight: 700;
+    margin: 0; /* Reset margin */
+    flex-grow: 1; /* Allow title to take space */
+    text-align: left; /* Align title left */
+}
+
+.logout-button {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    flex-shrink: 0; /* Prevent button from shrinking */
+}
+
+.logout-button:hover {
+    background-color: #c82333;
+}
+
+.dashboard-intro {
+    font-size: 1.1em;
+    color: #555;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+/* --- Admin Features Grid --- */
+.admin-features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* Responsive grid for feature cards */
+    gap: 30px;
+    justify-content: center;
+}
+
+.feature-card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+    padding: 25px;
+    text-align: center;
+    text-decoration: none; /* Remove underline for links */
+    color: #333;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 180px; /* Ensure consistent card height */
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.feature-card h2 {
+    color: #1a237e;
+    font-size: 1.5em;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.feature-card p {
+    font-size: 0.95em;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.feature-icon {
+    font-size: 3em; /* Large emoji icon */
+    margin-top: 10px;
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 768px) {
+    .admin-dashboard-container {
+        padding: 0 15px;
+    }
+
+    .admin-header {
+        flex-direction: column;
+        align-items: flex-start;
+        text-align: left;
+    }
+
+    .page-title {
+        font-size: 2em;
+        margin-bottom: 15px;
+    }
+
+    .logout-button {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .admin-features-grid {
+        grid-template-columns: 1fr; /* Stack feature cards on small screens */
+        gap: 20px;
+    }
+}

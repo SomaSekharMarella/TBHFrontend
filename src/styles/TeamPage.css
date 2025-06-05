@@ -1,0 +1,242 @@
+/* client/src/styles/TeamsPage.css */
+
+/* --- CSS Variables for easy theme management --- */
+:root {
+    --primary-color: #2563eb; /* Blue for active states, links */
+    --secondary-color: #1a237e; /* Dark blue for titles */
+    --text-color-dark: #333;
+    --text-color-medium: #555;
+    --text-color-light: #666;
+    --text-color-lighter: #777;
+    --background-light: #ffffff;
+    --background-medium: #f8f8f8;
+    --border-color: #e0e0e0;
+    --shadow-light: rgba(0, 0, 0, 0.05);
+    --shadow-medium: rgba(0, 0, 0, 0.1);
+    --shadow-strong: rgba(0, 0, 0, 0.15);
+    --spacing-xs: 5px;
+    --spacing-sm: 10px;
+    --spacing-md: 15px;
+    --spacing-lg: 20px;
+    --spacing-xl: 25px;
+    --spacing-xxl: 30px;
+}
+
+/* --- General Page Container & Title --- */
+.teams-page-container {
+    max-width: 1200px;
+    margin: 2.5rem auto; /* Consistent vertical margin */
+    padding: 0 1.25rem; /* Consistent horizontal padding */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--text-color-dark);
+}
+
+.page-title {
+    text-align: center;
+    color: var(--secondary-color);
+    margin-bottom: 2.5rem; /* Consistent margin */
+    font-size: 2.8em;
+    font-weight: 700;
+    letter-spacing: -0.03em; /* Slightly tighter letter spacing */
+}
+
+/* --- Academic Year Filter --- */
+.academic-year-filter {
+    text-align: center;
+    margin-bottom: 2.5rem; /* Consistent margin */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--spacing-md); /* Consistent gap */
+    align-items: center;
+}
+
+.filter-label {
+    font-size: 1.1em;
+    font-weight: 600;
+    color: var(--text-color-medium);
+    margin-right: var(--spacing-sm);
+}
+
+.filter-button {
+    background-color: var(--border-color);
+    color: var(--text-color-dark);
+    border: none;
+    padding: 0.625rem 1.25rem; /* 10px 20px */
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 500;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 2px 6px var(--shadow-light);
+}
+
+.filter-button:hover {
+    background-color: #d0d0d0; /* Slightly darker hover */
+    box-shadow: 0 4px 12px var(--shadow-medium);
+    transform: translateY(-2px);
+}
+
+.filter-button.active {
+    background-color: var(--primary-color);
+    color: white;
+    box-shadow: 0 4px 14px rgba(37, 99, 235, 0.3); /* Stronger shadow for active */
+}
+
+/* --- Team Members Grid --- */
+.team-members-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: var(--spacing-xxl); /* Consistent gap */
+    justify-content: center;
+}
+
+.no-members-message {
+    text-align: center;
+    color: var(--text-color-lighter);
+    font-size: 1.2em;
+    padding: 3.125rem 0; /* 50px */
+    grid-column: 1 / -1;
+}
+
+/* --- Team Member Card Styling --- */
+.team-member-card {
+    background-color: var(--background-light);
+    border-radius: 12px;
+    box-shadow: 0 6px 18px var(--shadow-medium); /* Softer initial shadow */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: var(--spacing-xl); /* Consistent padding */
+    text-align: center;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.team-member-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px var(--shadow-strong); /* More pronounced hover shadow */
+}
+
+.member-photo-container {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-bottom: var(--spacing-lg); /* Consistent margin */
+    border: 3px solid var(--primary-color); /* Accent border */
+    box-shadow: 0 2px 8px var(--shadow-light);
+    flex-shrink: 0;
+}
+
+.member-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.member-details {
+    flex-grow: 1;
+    width: 100%;
+}
+
+.member-name {
+    color: var(--secondary-color);
+    font-size: 1.6em;
+    font-weight: 700;
+    margin-bottom: var(--spacing-xs);
+}
+
+.member-position {
+    color: var(--primary-color);
+    font-size: 1.1em;
+    font-weight: 600;
+    margin-bottom: var(--spacing-md);
+}
+
+.member-id {
+    color: var(--text-color-light);
+    font-size: 0.9em;
+    margin-bottom: var(--spacing-sm);
+}
+
+.member-social-link {
+    display: inline-block;
+    background-color: var(--border-color);
+    color: var(--text-color-dark);
+    padding: 0.5rem 0.9375rem; /* 8px 15px */
+    border-radius: 20px;
+    text-decoration: none;
+    font-size: 0.9em;
+    margin: var(--spacing-xs); /* Consistent margin */
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.member-social-link.linkedin {
+    background-color: #0077B5; /* LinkedIn brand blue */
+    color: white;
+}
+
+.member-social-link.linkedin:hover {
+    background-color: #005582;
+}
+
+.member-social-link.telegram {
+    background-color: #0088CC; /* Telegram brand blue */
+    color: white;
+}
+
+.member-social-link.telegram:hover {
+    background-color: #006699;
+}
+
+.member-contact {
+    color: var(--text-color-medium);
+    font-size: 0.95em;
+    margin-top: var(--spacing-sm);
+}
+
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 768px) {
+    .teams-page-container {
+        padding: 0 0.9375rem; /* 15px */
+    }
+
+    .page-title {
+        font-size: 2.2em;
+    }
+
+    .academic-year-filter {
+        gap: var(--spacing-sm);
+    }
+
+    .filter-label {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: var(--spacing-sm);
+    }
+
+    .team-members-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
+    }
+
+    .team-member-card {
+        padding: var(--spacing-lg);
+    }
+
+    .member-photo-container {
+        width: 120px;
+        height: 120px;
+        margin-bottom: var(--spacing-md);
+    }
+
+    .member-name {
+        font-size: 1.4em;
+    }
+
+    .member-position {
+        font-size: 1em;
+    }
+}
