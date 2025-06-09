@@ -119,7 +119,7 @@ const GalleryPage = () => {
         description: "Throughout the semester, we organized weekly sessions diving deep into different blockchain topics. Watching everyone's knowledge grow week by week was amazing!",
         imageSrc:som ,
         academicYear: '2024-25',
-        dateTaken: 'Everyweek srom september 2024',
+        dateTaken: 'Everyweek from september 2024',
         displayOrder: 4
     },
 

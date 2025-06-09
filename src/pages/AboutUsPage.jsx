@@ -48,8 +48,7 @@ const AboutUsPage = () => {
           <div className="founder-quote">
             <h2>Our Founder's Vision</h2>
             <blockquote>
-              "We started TBH because blockchain wasn't just another tech trend – it was the future.
-              Today, we're proud to see freshers evolve into blockchain developers who outshine industry professionals."
+              "We launched The Blockchain Hub to help students move from Web2 to Web3 thinking. Blockchain isn't just tech — it's decentralization, transparency, smart contracts, and trustless systems. We wanted to create a place where peers could explore these concepts, build on-chain, and understand the real power of decentralized applications. Today, watching students deploy smart contracts and contribute to real networks proves that we’re not just learning the future — we’re building it, block by block."
             </blockquote>
             <p>- Mr. Praveen Chennamsetty, Founder</p>
           </div>
@@ -123,46 +122,46 @@ const AboutUsPage = () => {
         </section>
 
         {/* Why Join Us Section */}
-        <section className="why-join">
-          <h1 className="section-title">🚀 Why Join The Blockchain Hub?</h1>
+<section className="why-join">
+    <h1 className="section-title">Why Join The Blockchain Hub?</h1>
 
-          <div className="benefit-category">
-            <h2>🧠 Supercharge Your Skills</h2>
-            <ul>
-              <li><strong>From Zero to Web3 Hero:</strong> Master blockchain fundamentals → advanced dApp development in our structured learning path.</li>
-              <li><strong>Industry-Grade Toolkit:</strong>Get hands-on with Solidity, Hardhat, Ethers.js, and the exact stack used by Polygon/Coinbase teams.</li>
-              <li><strong>Research That Matters:</strong> Contribute to cutting-edge projects on ZK-proofs, Layer-2 scaling, and consensus algorithms.</li>
-            </ul>
-          </div>
+    <div className="benefit-category">
+        <h2>Elevate Your Technical Expertise</h2>
+        <ul>
+            <li><strong>Comprehensive Learning Pathway:</strong> Progress from blockchain fundamentals to advanced dApp development through our structured curriculum.</li>
+            <li><strong>Industry-Standard Tooling:</strong> Gain hands-on experience with Solidity, Hardhat, Ethers.js, and other tools used by leading Web3 organizations.</li>
+            <li><strong>Cutting-Edge Research Opportunities:</strong> Contribute to innovative projects exploring ZK-proofs, Layer-2 scaling solutions, and next-generation consensus mechanisms.</li>
+        </ul>
+    </div>
 
-          <div className="benefit-category">
-            <h2>💼 Turbocharge Your Career</h2>
-            <ul>
-              <li><strong>Industry Connections:</strong> Network with alumni at top Web3 companies (Polygon, Coinbase, etc.) and get referrals.</li>
-              <li><strong>Hackathon Dominance:</strong> Boost your resume with competitions and certifications.</li>
-              <li><strong>Internship Pipeline:</strong> Exclusive access to blockchain internship/job postings.</li>
-            </ul>
-          </div>
+    <div className="benefit-category">
+        <h2>Accelerate Your Professional Growth</h2>
+        <ul>
+            <li><strong>Strategic Networking:</strong> Connect with alumni at prominent Web3 companies including Polygon and Coinbase, with potential referral opportunities.</li>
+            <li><strong>Competitive Advantage:</strong> Enhance your credentials through hackathon participation and industry-recognized certifications.</li>
+            <li><strong>Exclusive Career Access:</strong> Benefit from our curated pipeline of blockchain internships and employment opportunities.</li>
+        </ul>
+    </div>
 
-          <div className="benefit-category">
-            <h2>🤝 For Your Tribe</h2>
-            <ul>
-              <li><strong>Seniors Who Care:</strong> Get 1:1 mentorship from experienced TBH members.</li>
-              <li><strong>Collaborative Culture:</strong> Team up to solve problems, not just compete.</li>
-              <li><strong>Discord Community:</strong> 24/7 support, meme battles, and #jobs-and-internships channel.</li>
-            </ul>
-          </div>
+    <div className="benefit-category">
+        <h2>Collaborative Community</h2>
+        <ul>
+            <li><strong>Mentorship Program:</strong> Receive personalized guidance from experienced TBH members.</li>
+            <li><strong>Team-Based Learning:</strong> Engage in collaborative problem-solving within our supportive environment.</li>
+            <li><strong>Dedicated Support:</strong> Access our 24/7 Discord community for technical discussions, career opportunities, and networking.</li>
+        </ul>
+    </div>
 
-          <div className="benefit-category">
-            <h2>🎉 For the Fun</h2>
-            <ul>
-              <li><strong>Crypto Trivia Nights:</strong> Test your knowledge and win NFT prizes.</li>
-              <li><strong>Guest Speaker AMAs:</strong> Grill Ethereum devs and founders with uncensored questions.</li>
-              <li><strong>IRL Meetups:</strong> Pizza + blockchain debates (Proof-of-Stake vs. Proof-of-Work, anyone?).</li>
-            </ul>
-          </div>
+    <div className="benefit-category">
+        <h2>Engaging Events</h2>
+        <ul>
+            <li><strong>Technical Challenges:</strong> Participate in blockchain trivia competitions with unique rewards.</li>
+            <li><strong>Industry Insights:</strong> Interact directly with Ethereum developers and project founders through exclusive AMA sessions.</li>
+            <li><strong>In-Person Gatherings:</strong> Join our meetups combining networking with technical discussions on critical blockchain topics.</li>
+        </ul>
+    </div>
 
-          <div className="belong-here">
+    <div className="belong-here">
             <h2>🎯 You Belong Here If You're...</h2>
             <div className="belong-points">
               <p>✅ A curious coder (no blockchain experience needed!).</p>
@@ -177,12 +176,15 @@ const AboutUsPage = () => {
              <div className="cta-steps">
                 <p>📲 DM us on <a href="https://www.instagram.com/klu_tbh/" target="_blank" rel="noopener noreferrer">Instagram (@klu_tbh)</a> for an invite.</p>
                <p>✈️ Join our <a href="https://t.me/klu_tbh" target="_blank" rel="noopener noreferrer">Telegram channel (@klu_tbh)</a> for instant updates.</p>
-               <p>🎟️ Attend your first workshop .</p>
+               <p>🎟 Attend your first workshop .</p>
     </div>
 </div>
 
-          <p className="final-tagline">"The future of the internet is decentralized. Don't just watch it happen – build it with us."</p>
-        </section>
+    <p className="final-tagline">
+        "The decentralized web represents the next evolution of the internet. We're building that future today - join us in shaping it."
+        <br/><strong>- Soma Sekhar, President</strong>
+    </p>
+</section>
       </div>
     </>
   );
