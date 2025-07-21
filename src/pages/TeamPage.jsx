@@ -1,8 +1,10 @@
 import React, { useState, useEffect, useCallback, useMemo } from 'react';
-import axios from 'axios';
+// Removed axios import as backend is no longer used in this public page
+// import axios from 'axios'; // No longer needed
+
 import '../styles/TeamPage.css'; // Ensure you create this CSS file
 
-// Importing local image for hardcoded member
+// Importing local images for hardcoded members
 import praveen from '../assets/images/praveen.jpg'; // Make sure this path is correct
 import hema from '../assets/images/hema_pic.jpg'; // Importing Hema's image
 import charan from '../assets/images/chran_pic.jpg'; // Importing Charan's image
@@ -22,23 +24,24 @@ import anjali from '../assets/images/anjali_pic.jpg'; // Importing Anjali's imag
 import mouli from '../assets/images/Mouli.jpg'; // Importing Mouli's image
 import srivalli from '../assets/images/srivalli_pic.jpg'; // Importing Srivalli's image
 import mounisha from '../assets/images/mounisha.jpg'; // Importing Mounisha's image
+import somunew from '../assets/images/somu2.jpg'; // Importing new Soma's image for 2025-26
+// Add imports for 2025-26 members if they have specific images
+// import newMember2026_1 from '../assets/images/new_member_2026_1.jpg';
 
 
-const API_BASE_URL = 'http://localhost:5000'; // Your backend URL
+// const API_BASE_URL = 'http://localhost:5000'; // No longer needed as backend is bypassed
 
 // --- TeamMemberCard Component ---
 // This component displays a single team member's details for the public view.
 const TeamMemberCard = ({ member }) => {
-    // Determine photo source based on type (upload from backend, external URL, or local import)
+    // Determine photo source based on type (local import, external URL, or fallback)
     let photoSrc;
-    if (member.photo.type === 'upload') {
-        photoSrc = `${API_BASE_URL}${member.photo.value}`;
-    } else if (member.photo.type === 'url') {
+    // For hardcoded data, we primarily use 'import' or 'url'
+    if (member.photo && member.photo.type === 'import') {
+        photoSrc = member.photo.value; // Directly use the imported image variable
+    } else if (member.photo && member.photo.type === 'url') {
         photoSrc = member.photo.value;
-    } else if (member.photo.type === 'import') { // <--- ADDED: Handle 'import' type
-        photoSrc = member.photo.value; // Directly use the imported value
-    }
-    else {
+    } else {
         // Fallback for missing or unknown photo type
         photoSrc = 'https://via.placeholder.com/150x150/E0E0E0/888888?text=No+Photo';
     }
@@ -60,7 +63,7 @@ const TeamMemberCard = ({ member }) => {
                 <h3 className="member-name">{member.name}</h3>
                 <p className="member-position">{member.position}</p>
                 {/* Conditionally display ID Number only if it exists */}
-                {member.idNumber && ( // <--- ADDED: Conditional rendering
+                {member.idNumber && (
                     <p className="member-id">ID: {member.idNumber}</p>
                 )}
 
@@ -71,7 +74,7 @@ const TeamMemberCard = ({ member }) => {
                 )}
 
                 {/* Conditionally display phone number if it's marked as public */}
-                {member.isPhoneNumberPublic && (
+                {member.isPhoneNumberPublic && member.phoneNumber && ( // Added check for phoneNumber existence
                     <p className="member-contact">Phone: {member.phoneNumber}</p>
                 )}
                 {/* Conditionally display Telegram link if it's marked as public and exists */}
@@ -88,7 +91,6 @@ const TeamMemberCard = ({ member }) => {
 // --- TeamsPage Component ---
 const TeamsPage = () => {
     // Hardcoded team members for the '2024-25' academic year (completed year)
-    // These will be displayed when '2024-25' is selected.
     const hardcoded2024_25Members = useMemo(() => [
         {
             _id: 'manual_team_1',
@@ -169,7 +171,7 @@ const TeamsPage = () => {
         "position": "Non Tech Lead",
         "academicYear": "Y23-CSE",
         "displayOrder": 7,
-        "linkedinId": "",
+        "linkedinId": "bhargavi-putti-09ab26316",
         "phoneNumber": "",
         "isPhoneNumberPublic": false,
         "telegramLink": "",
@@ -280,7 +282,7 @@ const TeamsPage = () => {
         "position": "Design Core",
         "academicYear": "Y23-CSE",
         "displayOrder": 13,
-        "linkedinId": "kaka-mouli-brahma-b401b4324",
+        "linkedinId": "",
         "phoneNumber": "",
         "isPhoneNumberPublic": false,
         "telegramLink": "",
@@ -308,7 +310,7 @@ const TeamsPage = () => {
         "position": "Draft Core",
         "academicYear": "Y23-CSE",
         "displayOrder": 15,
-        "linkedinId": "kaka-mouli-brahma-b401b4324",
+        "linkedinId": "sarvagna-sudulagunta",
         "phoneNumber": "",
         "isPhoneNumberPublic": false,
         "telegramLink": "",
@@ -322,7 +324,7 @@ const TeamsPage = () => {
         "position": "Draft Core",
         "academicYear": "Y23-CSE",
         "displayOrder": 16,
-        "linkedinId": "kaka-mouli-brahma-b401b4324",
+        "linkedinId": "",
         "phoneNumber": "",
         "isPhoneNumberPublic": false,
         "telegramLink": "",
@@ -336,7 +338,7 @@ const TeamsPage = () => {
         "position": "PR Lead",
         "academicYear": "Y23-CSE",
         "displayOrder": 17,
-        "linkedinId": "kaka-mouli-brahma-b401b4324",
+        "linkedinId": "udayanjali-devu-758748285",
         "phoneNumber": "",
         "isPhoneNumberPublic": false,
         "telegramLink": "",
@@ -356,61 +358,80 @@ const TeamsPage = () => {
         "telegramLink": "",
         "isTelegramLinkPublic": false
     }
-        // Add more 2024-25 hardcoded members here
+
+    ], []); // Removed all imported images from dependencies as they are constants
+
+    // Hardcoded team members for the '2025-26' academic year (upcoming year)
+    // Add more members here!
+    const hardcoded2025_26Members = useMemo(() => [
+        {
+            _id: 'manual_team_2026_1',
+            name: 'Soma Sekhar Marella',
+            idNumber: '2300030411',
+            photo: { type: "import", value: somunew },
+            position: 'President',
+            academicYear: '2025-26',
+            displayOrder: 1,
+            linkedinId: 'soma-sekhar-marella-a16a67302',
+            phoneNumber: '9966989364',
+            isPhoneNumberPublic: true,
+            telegramLink: 'https://t.me/somuu_05',
+            isTelegramLinkPublic: true
+        },
+        {
+            _id: 'manual_team_2026_2',
+            name: 'Bhargavi Putti',
+            idNumber: '2300033497',
+            photo: { type: "import", value: bhargavi },
+            position: 'Vice President',
+            academicYear: '2025-26',
+            displayOrder: 2,
+            linkedinId: 'bhargavi-putti-09ab26316',
+            phoneNumber: '9876543210',
+            isPhoneNumberPublic: false,
+            telegramLink: '',
+            isTelegramLinkPublic: false
+        }
+        // Add more 2025-26 hardcoded members here as needed
     ], []);
 
     const [teamMembers, setTeamMembers] = useState([]);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState('');
+    // Set loading to false initially as we will immediately display hardcoded data
+    const [loading, setLoading] = useState(false);
+    // Removed error state as it's no longer needed for display
+    // const [error, setError] = useState(''); // Removed
+
     // Initial filter selection: '2024-25' to show hardcoded members first
     const [selectedAcademicYear, setSelectedAcademicYear] = useState('2024-25');
     // Only two academic year options as requested
     const academicYears = ['2024-25', '2025-26'];
 
-    // Function to fetch team members based on selected academic year
-    const fetchTeamMembers = useCallback(async (year) => {
-        setLoading(true);
-        setError('');
-        try {
-            if (year === '2024-25') {
-                // For '2024-25', use hardcoded data
-                setTeamMembers(hardcoded2024_25Members);
-                setLoading(false);
-            } else if (year === '2025-26') {
-                // For '2025-26', fetch from backend
-                const response = await axios.get(`${API_BASE_URL}/api/team-members?academicYear=${year}`);
-                setTeamMembers(response.data);
-                setLoading(false);
-            } else {
-                // Fallback for any unexpected year, though academicYears array restricts this
-                setTeamMembers([]);
-                setLoading(false);
-            }
-        } catch (err) {
-            console.error('Error fetching team members:', err);
-            setError(`Failed to fetch team members for ${year}. Please check your backend.`);
-            setTeamMembers([]); // Clear members on error
-            setLoading(false);
+    // Function to set team members based on selected academic year
+    // This now only handles hardcoded data and does NOT make backend calls
+    const setMembersForYear = useCallback((year) => {
+        setLoading(true); // Briefly set loading to true for a smooth transition
+        if (year === '2024-25') {
+            setTeamMembers(hardcoded2024_25Members);
+        } else if (year === '2025-26') {
+            setTeamMembers(hardcoded2025_26Members);
+        } else {
+            setTeamMembers([]); // Fallback for any unexpected year
         }
-    }, [hardcoded2024_25Members, setTeamMembers, setLoading, setError]); // Dependencies for useCallback
+        setLoading(false); // Immediately set loading to false after setting data
+    }, [hardcoded2024_25Members, hardcoded2025_26Members]); // Dependencies for useCallback
 
-    // Effect hook to call fetchTeamMembers when selectedAcademicYear changes
+    // Effect hook to call setMembersForYear when selectedAcademicYear changes
     useEffect(() => {
-        fetchTeamMembers(selectedAcademicYear);
-    }, [selectedAcademicYear, fetchTeamMembers]); // Dependencies for useEffect
+        setMembersForYear(selectedAcademicYear);
+    }, [selectedAcademicYear, setMembersForYear]); // Dependencies for useEffect
 
     // Handler for filter button clicks
     const handleYearChange = (year) => {
         setSelectedAcademicYear(year);
     };
 
-    if (loading) {
-        return <div className="teams-page-container">Loading team members...</div>;
-    }
-
-    if (error) {
-        return <div className="teams-page-container error-message">{error}</div>;
-    }
+    // Removed the 'if (loading)' and 'if (error)' blocks from render
+    // as loading will be very brief and error state is removed.
 
     return (
         <div className="teams-page-container">
@@ -430,15 +451,30 @@ const TeamsPage = () => {
                 ))}
             </div>
 
-            {/* Display Team Members Grid */}
-            {teamMembers.length === 0 ? (
-                <p className="no-members-message">No team members found for {selectedAcademicYear} academic year.</p>
+            {/* Display Team Members Grid or Recruitment Message */}
+            {loading ? ( // Still show loading if it's briefly true during transition
+                <div className="loading-message">Loading team members...</div>
             ) : (
-                <div className="team-members-grid">
-                    {teamMembers.map((member) => (
-                        <TeamMemberCard key={member._id} member={member} />
-                    ))}
-                </div>
+                <>
+                    {selectedAcademicYear === '2025-26' && teamMembers.length === 0 && (
+                        <p className="no-members-message recruitment-message">
+                            Recruitment for the <strong>2025-26</strong> academic year is currently underway!
+                            If you're passionate about blockchain and want to join our team,
+                            please contact our core members via our Telegram group for more details.
+                            We're excited to welcome new talent!
+                        </p>
+                    )}
+
+                    {teamMembers.length === 0 && selectedAcademicYear !== '2025-26' ? (
+                        <p className="no-members-message">No team members found for {selectedAcademicYear} academic year.</p>
+                    ) : (
+                        <div className="team-members-grid">
+                            {teamMembers.map((member) => (
+                                <TeamMemberCard key={member._id} member={member} />
+                            ))}
+                        </div>
+                    )}
+                </>
             )}
         </div>
     );
