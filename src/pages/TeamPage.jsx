@@ -373,10 +373,10 @@ const TeamsPage = () => {
             academicYear: '2025-26',
             displayOrder: 1,
             linkedinId: 'soma-sekhar-marella-a16a67302',
-            phoneNumber: '9966989364',
+            phoneNumber: '',
             isPhoneNumberPublic: true,
             telegramLink: 'https://t.me/somuu_05',
-            isTelegramLinkPublic: true
+            isTelegramLinkPublic: false
         },
         {
             _id: 'manual_team_2026_2',
